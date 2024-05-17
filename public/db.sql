@@ -7,3 +7,4 @@ INSERT INTO users (name, email, usertype, password) VALUES
 /*password: harijs123*/
 ('Ruslans', 'rusis@gmail.com','plaukti', '$2y$12$1Gz/OfqDCoMQDkIWL8ItfOFbyQf3f1Ce4PtNkS6eqMlPv/tsbPKGG')
 /*password: rusis123 */
+
