@@ -28,6 +28,21 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if(Auth::user()->usertype == 'admin')
+        {
+            return redirect(route('admin.dashboard'));
+        }
+
+        if(Auth::user()->usertype == 'noliktava')
+        {
+            return redirect(route('noliktava.dashboard'));
+        }
+
+        if(Auth::user()->usertype == 'plaukti')
+        {
+            return redirect(route('plaukti.dashboard'));
+        }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
