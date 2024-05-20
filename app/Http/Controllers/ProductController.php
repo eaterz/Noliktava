@@ -14,6 +14,7 @@ class ProductController extends Controller
     {
         return view('noliktava.create');
     }
+
     public function store(Request $request)
     {
         $request->validate([

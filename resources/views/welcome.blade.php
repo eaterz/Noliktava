@@ -1,22 +1,4 @@
 <x-musu.layout>
-    @if (Route::has('login'))
-    <nav class="flex justify-center items-center h-full">
-
-
-        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-            Log in
-        </a>
-
-        <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-            Register
-        </a>
-
-
-
-
-
-    </nav>
-    @endif
 
     <div class="bg-zinc-800 text-white min-h-screen flex items-center justify-center">
         <div class="container mx-auto px-6 py-12">
@@ -25,7 +7,6 @@
                     <h1 class="text-4xl font-bold leading-tight">Noliktava.LV</h1>
                     <p class="text-zinc-300">Sveiki! Esam noliktava.LV pie mums uzglabā visāda klāsta preces, vairākas firmas, kā <b>4.games</b>, <b>1A LV</b> un citi!</p>
                     <div class="space-x-4">
-                        <a href="{{ route('register') }}" class="rounded bg-purple-600 px-4 py-2 font-bold text-white">Register</a>
                         <a href="{{ route('login') }}" class="rounded bg-purple-600 px-4 py-2 font-bold text-white">Log In</a>
                     </div>
                 </div>

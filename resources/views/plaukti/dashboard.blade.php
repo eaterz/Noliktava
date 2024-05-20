@@ -1,4 +1,3 @@
-<x-musu.layout>
-    <h1>emils gej</h1>
+<x-musu.admin>
 
-</x-musu.layout>
+</x-musu.admin>
