@@ -11,4 +11,5 @@ class PlauktiController extends Controller
     {
         return view('plaukti.dashboard');
     }
+
 }
