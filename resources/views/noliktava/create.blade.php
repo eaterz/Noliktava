@@ -21,26 +21,10 @@
             @enderror
 
             <div class="form-field">
-                <label for="description">Description</label>
-                <textarea placeholder="Product Description" name="description" id="description" required><?= old('description') ?></textarea>
+                <label for="brand">Brand</label>
+                <textarea placeholder="Product brand" name="brand" id="brand" required><?= old('brand') ?></textarea>
             </div>
-            @error('description')
-            <span class="text-red-500">{{ $message }}</span>
-            @enderror
-
-            <div class="form-field">
-                <label for="SKU">SKU</label>
-                <textarea placeholder="Product SKU" name="SKU" id="SKU" required><?= old('SKU') ?></textarea>
-            </div>
-            @error('SKU')
-            <span class="text-red-500">{{ $message }}</span>
-            @enderror
-
-            <div class="form-field">
-                <label for="category">Category</label>
-                <textarea placeholder="Product category" name="category" id="category" required><?= old('category') ?></textarea>
-            </div>
-            @error('category')
+            @error('brand')
             <span class="text-red-500">{{ $message }}</span>
             @enderror
 
@@ -51,8 +35,6 @@
             @error('price')
             <span class="text-red-500">{{ $message }}</span>
             @enderror
-
-
             <div class="button-container">
                 <button class="rounded-button">Submit</button>
             </div>
