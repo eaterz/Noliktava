@@ -5,21 +5,18 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\noliktava\NoliktavaController;
 use App\Http\Controllers\plaukti\PlauktiController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-//admin
+// Admin routes
 Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users');
@@ -27,27 +24,23 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/users', [UsersController::class, 'store'])->name('admin.users');
     Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users');
     Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users');
-    Route::delete('/admin/users/{id}', [UsersController::class,'destroy'])->name('admin.users');
+    Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('admin.users');
 });
 
-
-
-//noliktava
+// Noliktava routes
 Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [NoliktavaController::class, 'index'])->name('noliktava.dashboard');
+
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
-    Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.dashboard');
+    Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');
 });
 
-
-
-
-//plaukti
+// Plaukti routes
 Route::middleware('auth')->group(function () {
     Route::get('/plaukti/dashboard', [PlauktiController::class, 'index'])->name('plaukti.dashboard');
 });
 
-
+// Profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
