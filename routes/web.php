@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\noliktava\NoliktavaController;
 use App\Http\Controllers\plaukti\PlauktiController;
 use App\Http\Controllers\ProfileController;
@@ -18,18 +19,18 @@ Route::get('/dashboard', function () {
 // Admin routes
 Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users');
+    Route::get('/admin/users/create', [UsersController::class, 'create'])->name('admin.users');
+    Route::post('/admin/users', [UsersController::class, 'store'])->name('admin.users');
+    Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users');
+    Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users');
+    Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('admin.users');
 });
 
 // Noliktava routes
 Route::middleware('auth')->group(function () {
+    Route::get('/noliktava/dashboard', [NoliktavaController::class, 'index'])->name('noliktava.dashboard');
 
-    Route::get('/noliktava/dashboard', [ProductController::class, 'index']);
-    Route::post('/noliktava/store', [ProductController::class, 'store']);
-    Route::put('/noliktava/update/{id}', [ProductController::class, 'update']);
-    Route::delete('/noliktava/destroy/{id}', [ProductController::class, 'destroy']);
-
-
-    Route::get('/noliktava/edit/{id}', [ProductController::class, 'edit'])->name('noliktava.edit');
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
     Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');
 });
