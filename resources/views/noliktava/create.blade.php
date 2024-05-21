@@ -2,7 +2,7 @@
 
     <div class="main-container">
         <h1 class="special-h1 normal-h1"><span>Create new Product</span></h1>
-        <form class="create-form" action="/noliktava/dashboard" method="POST" enctype="multipart/form-data">
+        <form class="create-form" action="{{ route('noliktava.create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-field">
                 <label for="name">Name</label>

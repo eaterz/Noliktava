@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('brand'); // Add brand column
-            $table->string('category');
             $table->decimal('price', 8, 2);
             $table->string('image')->nullable();
             $table->timestamps();
