@@ -4,8 +4,8 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\noliktava\NoliktavaController;
 use App\Http\Controllers\plaukti\PlauktiController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,8 +29,7 @@ Route::middleware('auth')->group(function () {
 
 // Noliktava routes
 Route::middleware('auth')->group(function () {
-    Route::get('/noliktava/dashboard', [NoliktavaController::class, 'index'])->name('noliktava.dashboard');
-
+    Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
     Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');
 });

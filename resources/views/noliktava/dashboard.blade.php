@@ -1,10 +1,8 @@
-<x-musu.layout>
+<x-musu.admin>
     <h1>Hello</h1>
     <a href="create">Create</a>
 
-    @if (!$products)
-    <?php $products = []; ?>
-    @endif
+    <?php if(!$products){$products = [];} ?>
 
     <div class="flex flex-col items-center">
         <h1 class="text-3xl font-bold special-h1 normal-h1">Products</h1>
@@ -37,4 +35,4 @@
             </tbody>
         </table>
     </div>
-</x-musu.layout>
+</x-musu.admin>
