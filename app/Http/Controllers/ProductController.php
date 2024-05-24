@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('noliktava.edit');
+        return view('noliktava.edit', compact("product"));
     }
     public function update(Request $request, $id)
     {
@@ -49,6 +49,8 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'image' => 'required|url',
         ]);
+
+
 
         $product = Product::find($id);
         if ($product) {

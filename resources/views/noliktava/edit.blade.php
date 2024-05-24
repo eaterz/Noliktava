@@ -22,7 +22,7 @@
 
                 <div class="form-field">
                     <label for="email">Brand</label>
-                    <input type="email" name="email" id="email" required value="<?= old('Brand'), $product->Brand ?>" class="form-input">
+                    <input name="email" id="email" required value="<?= old('Brand'), $product->Brand ?>" class="form-input">
                 </div>
                 @error('Brand')
                 <span class="text-red-500">{{ $message }}</span>
