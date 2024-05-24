@@ -26,18 +26,21 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            @if(Auth::user()->usertype == 'admin')
                             <a href="/admin/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
                             <a href="/admin/users" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Users</a>
+                            @elseif(Auth::user()->usertype == 'noliktava')
 
+                            @elseif(Auth::user()->usertype == 'plaukti')
+
+
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">View notifications</span>
-                            </svg>
-                        </button>
+
 
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
