@@ -16,4 +16,11 @@ class PlauktiController extends Controller
         return view('plaukti.dashboard',compact('products','categories'));
     }
 
+    public function show($id)
+    {
+        $category = Category::find($id);
+        $products = Product::all();
+        return view('plaukti.show',compact('category','products'));
+    }
+
 }

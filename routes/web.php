@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 // Plaukti routes
 Route::middleware('auth')->group(function () {
     Route::get('/plaukti/dashboard', [PlauktiController::class, 'index'])->name('plaukti.dashboard');
+    Route::get('/plaukti/show/{id}', [PlauktiController::class, 'show'])->name('plaukti.show');
 });
 
 // Profile routes
