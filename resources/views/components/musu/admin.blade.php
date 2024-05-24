@@ -34,7 +34,7 @@
                                 @elseif(Auth::user()->usertype == 'noliktava')
                                 <a href="/noliktava/create" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Products</a>
                                 @elseif(Auth::user()->usertype == 'plaukti')
-
+                                    <a href="/plaukti/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
 
                                 @endif
                             </div>
