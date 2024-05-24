@@ -30,6 +30,11 @@ Route::middleware('auth')->group(function () {
 // Noliktava routes
 Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
+
+    Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
+
+    Route::delete('/noliktava/edit/{id}', [UsersController::class, 'delete'])->name('delete');
+    Route::get('/noliktava/edit/{id}', [ProductController::class, 'edit'])->name('noliktva.edit');
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
     Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');
 });

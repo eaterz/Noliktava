@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('noliktava.edit');
+        return view('noliktava.edit', compact("product"));
     }
     public function update(Request $request, $id)
     {
@@ -50,19 +50,13 @@ class ProductController extends Controller
             'image' => 'required|url',
         ]);
 
-        $product = Product::find($id);
-        if ($product) {
-            $product->name = $request->input('name');
-            $product->brand = $request->input('brand');
-            $product->image = $request->input('image');
-            $product->price = $request->input('price');
-            $product->save();
-        }
+        $product = Product::findOrFail($id);
+        $product->update($request->except(['_token']));
 
-        return redirect('/noliktava/dashboard');
+        return redirect()->route('dashboard')->with('success', 'Product updated successfully');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $product = Product::find($id);
         if ($product) {

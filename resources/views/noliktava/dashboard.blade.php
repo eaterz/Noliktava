@@ -2,7 +2,9 @@
     <h1>Hello</h1>
     <a href="create">Create</a>
 
-    <?php if(!$products){$products = [];} ?>
+    <?php if (!$products) {
+        $products = [];
+    } ?>
 
     <div class="flex flex-col items-center">
         <h1 class="text-3xl font-bold special-h1 normal-h1">Products</h1>
@@ -22,15 +24,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $user)
-                @if($user->id != auth()->user()->id)
-                <tr onclick="window.location.href='/noliktava/edit/{{$user->id}}'">
-                    <td class="border px-4 py-2">{{ $user->name }}</td>
-                    <td class="border px-4 py-2">{{ $user->brand }}</td>
-                    <td class="border px-4 py-2">{{ $user->price }}</td>
+                @foreach($products as $product)
+
+                <tr class="cursor-pointer" onclick="window.location.href='/noliktava/edit/{{$product->id}}'">
+                    <td class="border px-4 py-2 r">{{ $product->name }}</td>
+                    <td class="border px-4 py-2">{{ $product->brand }}</td>
+                    <td class="border px-4 py-2">{{ $product->price }}</td>
 
                 </tr>
-                @endif
+
                 @endforeach
             </tbody>
         </table>
