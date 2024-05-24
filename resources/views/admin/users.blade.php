@@ -24,6 +24,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->usertype }}</td>
+
                     </tr>
                 @endif
             @endforeach

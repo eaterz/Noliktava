@@ -4,43 +4,39 @@
 
         <div class="flex flex-col items-center">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">
-                <span class="block text-2xl font-normal text-blue-500">Create</span>
+                <span class="block text-2xl font-normal text-blue-500">Update</span>
             </h1>
 
 
-            <form class="create-form" action="/noliktava/dashboard" method="POST" enctype="multipart/form-data">
+            <!-- In the edit.blade.php -->
+            <form action="{{ route('update', $product->id) }}" method="POST">
                 @csrf
-                <input type="hidden" name="id" value="<?= $product->id ?>">
                 @method('PATCH')
-                <div class="form-field">
-                    <label for="name">Name</label>
-                    <input type="text" placeholder="Product name" name="name" id="name" required value="<?= old('name'), $product->name ?>" class="form-input">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ $product->name }}" required>
                 </div>
-                @error('name')
-                <span class="text-red-500">{{ $message }}</span>
-                @enderror
-
-                <div class="form-field">
-                    <label for="email">Brand</label>
-                    <input name="email" id="email" required value="<?= old('Brand'), $product->Brand ?>" class="form-input">
+                <div>
+                    <label for="brand">Brand:</label>
+                    <input type="text" id="brand" name="brand" value="{{ $product->brand }}" required>
                 </div>
-                @error('Brand')
-                <span class="text-red-500">{{ $message }}</span>
-                @enderror
-
-                <div class="form-field">
-                    <label for="usertype">Price</label>
-                    <input type="Price" name="Price" id="Price" required value="<?= old('Price'), $product->Brand ?>" class="form-input">
+                <div>
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" value="{{ $product->price }}" required>
                 </div>
-                @error('Price')
-                <span class="text-red-500">{{ $message }}</span>
-                @enderror
-
-
-                <div class="button-container">
-                    <button type="submit" class="rounded-button">Submit</button>
+                <div>
+                    <label for="image">Image URL:</label>
+                    <input type="url" id="image" name="image" value="{{ $product->image }}" required>
                 </div>
+                <button type="submit">Update Product</button>
+                <form action="/noliktava/edit/{id}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
             </form>
+
+
         </div>
     </div>
 </x-musu.layout>

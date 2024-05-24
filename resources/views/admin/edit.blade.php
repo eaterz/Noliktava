@@ -4,7 +4,7 @@
 
         <div class="flex flex-col items-center">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">
-                <span class="block text-2xl font-normal text-blue-500">Create</span>
+                <span class="block text-2xl font-normal text-blue-500">Edit User</span>
             </h1>
 
 
@@ -50,6 +50,11 @@
                 <div class="button-container">
                     <button type="submit" class="rounded-button">Submit</button>
                 </div>
+            </form>
+            <form action="/admin/users/edit/{{$user->id}}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="delete-button">Delete</button>
             </form>
         </div>
     </div>

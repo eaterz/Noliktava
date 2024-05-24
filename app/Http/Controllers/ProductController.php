@@ -50,21 +50,13 @@ class ProductController extends Controller
             'image' => 'required|url',
         ]);
 
+        $product = Product::findOrFail($id);
+        $product->update($request->except(['_token']));
 
-
-        $product = Product::find($id);
-        if ($product) {
-            $product->name = $request->input('name');
-            $product->brand = $request->input('brand');
-            $product->image = $request->input('image');
-            $product->price = $request->input('price');
-            $product->save();
-        }
-
-        return redirect('/noliktava/dashboard');
+        return redirect()->route('dashboard')->with('success', 'Product updated successfully');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $product = Product::find($id);
         if ($product) {
