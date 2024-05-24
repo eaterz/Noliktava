@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('brand'); // Add brand column
             $table->decimal('price', 8, 2);
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->string('category');
             $table->string('image')->nullable();
             $table->timestamps();
         });

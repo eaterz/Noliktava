@@ -1,26 +1,26 @@
 <x-musu.admin>
 
     <?php if(!$categories){$categories = [];} ?>
-    <?php if(!$products){$products = [];} ?>
+
 
 
 
     <h1 class=" text-3xl font-bold special-h1 normal-h1 text-center">Category</h1>
 
-    <div class="flex justify-center mt-8">
-        <table class="table-auto w-2/3">
-            <thead>
-            <tr>
-                <th class="px-4 py-2">Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($categories as $category)
-                <tr onclick="window.location.href='/plaukti/edit/{{$category->id}}'">
-                    <td class="border px-4 py-2">{{ $category->name }}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+
+
+
+    <div class="grid">
+        <?php foreach ($categories as $category): ?>
+        <a href="/plaukti/show/{{ $category->id }}" class="grid-item">
+            <div class="image-wrapper">
+                <div class="aspect-square">
+                    <img src="{{ $category->image }}" alt="boots" class="image">
+                </div>
+                <h3 class="name">{{ $category->name }}</h3>
+            </div>
+        </a>
+        <?php endforeach; ?>
     </div>
+
 </x-musu.admin>

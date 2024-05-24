@@ -23,8 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/users/create', [UsersController::class, 'create'])->name('admin.users');
     Route::post('/admin/users', [UsersController::class, 'store'])->name('admin.users');
     Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users');
-    Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users');
-    Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('admin.users');
+    Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users.update');
+    Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
 });
 
 // Noliktava routes
