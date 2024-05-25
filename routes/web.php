@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/plaukti/dashboard', [PlauktiController::class, 'index'])->name('plaukti.dashboard');
     Route::get('/plaukti/show/{id}', [PlauktiController::class, 'show'])->name('plaukti.show');
+    Route::patch('/plaukti/show/{category}', [PlauktiController::class, 'add'])->name('plaukti.add');
 });
 
 // Profile routes
