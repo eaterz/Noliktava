@@ -1,4 +1,5 @@
 @import "/resources/css/plaukti.css";
+@import "/resources/css/pop_up.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
