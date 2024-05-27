@@ -47,9 +47,16 @@ class PlauktiController extends Controller
         return redirect('/plaukti/show/' . $categoryId);
     }
 
-    public function remove(){
-
+    public function remove(Request $request, $categoryId) {
+        $productId = $request->input('id');
+        $product = Product::find($productId);
+        if ($product) {
+            $product->category = 'none';
+            $product->save();
+        }
+        return redirect('/plaukti/show/' . $categoryId);
     }
+
 
 
 
