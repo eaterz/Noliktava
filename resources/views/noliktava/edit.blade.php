@@ -1,14 +1,11 @@
 <x-musu.layout>
     <div class="main-container">
-
-
         <div class="flex flex-col items-center">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">
                 <span class="block text-2xl font-normal text-blue-500">Update</span>
             </h1>
 
-
-            <!-- In the edit.blade.php -->
+            <!-- Update Form -->
             <form action="{{ route('update', $product->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
@@ -28,15 +25,17 @@
                     <label for="image">Image URL:</label>
                     <input type="url" id="image" name="image" value="{{ $product->image }}" required>
                 </div>
-                <button type="submit">Update Product</button>
-                <form action="/noliktava/edit/{id}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="delete-button">Delete</button>
-                </form>
+                <div class="button-container">
+                    <button type="submit" class="rounded-button">Submit</button>
+                </div>
             </form>
 
-
+            <!-- Delete Form -->
+            <form action="{{ route('delete', $product->id) }}" method="POST" class="mt-4">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
         </div>
     </div>
 </x-musu.layout>

@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\noliktava\NoliktavaController;
 use App\Http\Controllers\plaukti\PlauktiController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,10 +31,11 @@ Route::middleware('auth')->group(function () {
 // Noliktava routes
 Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
+    Route::get('/noliktava/orders', [OrderController::class, 'index'])->name('noliktava.orders');
 
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
 
-    Route::delete('/noliktava/edit/{id}', [UsersController::class, 'delete'])->name('delete');
+    Route::delete('/noliktava/edit/{id}', [ProductController::class, 'delete'])->name('delete');
     Route::get('/noliktava/edit/{id}', [ProductController::class, 'edit'])->name('noliktva.edit');
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
     Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');

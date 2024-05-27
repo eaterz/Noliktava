@@ -53,7 +53,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->update($request->except(['_token']));
 
-        return redirect()->route('dashboard')->with('success', 'Product updated successfully');
+        return redirect()->route('noliktava.dashboard')->with('success', 'Product updated successfully');
     }
 
     public function delete($id)

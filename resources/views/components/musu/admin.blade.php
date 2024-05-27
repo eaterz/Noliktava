@@ -33,9 +33,10 @@
                                 <a href="/admin/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Dashboard</a>
                                 <a href="/admin/users" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Users</a>
                                 @elseif(Auth::user()->usertype == 'noliktava')
-                                <a href="/noliktava/create" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Products</a>
+                                <a href="/noliktava/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Products</a>
+                                <a href="/noliktava/orders" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Orders</a>
                                 @elseif(Auth::user()->usertype == 'plaukti')
-                                    <a href="/plaukti/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Dashboard</a>
+                                <a href="/plaukti/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Dashboard</a>
 
                                 @endif
                             </div>
