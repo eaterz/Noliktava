@@ -24,27 +24,20 @@ class PlauktiController extends Controller
         return view('plaukti.show',compact('category','products'));
     }
 
-    public function add(Request $request, $categoryId){
-        // Retrieve the category name from the request
-        $categoryName = $request->input('name');
-
-        // Retrieve the product IDs from the request
+    public function add(Request $request, $categoryId)
+    {
+        $category = $request->input('name');
         $productIds = $request->input('products');
-
-        // Check if products are selected
-        if ($productIds && is_array($productIds)) {
-            // Find the products by their IDs
-            $products = Product::where('id', $productIds)->get();
-
-            // Update the category for each product
-            foreach ($products as $product) {
-                $product->category = $categoryName;
-                $product->save();
+        if ($productIds) {
+            foreach ($productIds as $productId) {
+                $product = Product::find($productId);
+                if ($product) {
+                    $product->category = $category;
+                    $product->save();
+                }
             }
         }
-
-        // Redirect to the dashboard
-        return redirect('/plaukti/show/' . $categoryId);
+        return redirect()->route('plaukti.show', $categoryId);
     }
 
     public function remove(Request $request, $categoryId) {

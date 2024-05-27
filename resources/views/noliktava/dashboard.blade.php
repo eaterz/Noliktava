@@ -1,6 +1,5 @@
 <x-musu.admin>
 
-
     <?php if (!$products) {
         $products = [];
     } ?>
@@ -20,16 +19,19 @@
                     <th class="px-4 py-2">Name</th>
                     <th class="px-4 py-2">Brand</th>
                     <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Actions</th> <!-- Pievieno jaunu kolonnu darbībām -->
                 </tr>
             </thead>
             <tbody>
                 @foreach($products as $product)
 
-                <tr class="cursor-pointer" onclick="window.location.href='/noliktava/edit/{{$product->id}}'">
+                <tr class="cursor-pointer">
                     <td class="border px-4 py-2 r">{{ $product->name }}</td>
                     <td class="border px-4 py-2">{{ $product->brand }}</td>
                     <td class="border px-4 py-2">{{ $product->price }}</td>
-
+                    <td class="border px-4 py-2">
+                        <a href="/noliktava/edit/{{$product->id}}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Edit</a> <!-- Pievieno pogu "Edit" -->
+                    </td>
                 </tr>
 
                 @endforeach

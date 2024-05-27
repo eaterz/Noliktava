@@ -1,32 +1,36 @@
-<form action="{{ route('plaukti.add', $category->id) }}" method="post" enctype="multipart/form-data">
-    @csrf
-    @method('PATCH')
-    <input type="hidden" name="name" value="{{$category->name}}">
-    <div class="modal fade" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalCreateLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">{{__('Add products')}}</h4>
-                </div>
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Products</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('plaukti.add', $category->id) }}" method="post">
+                @csrf
+                @method('PATCH')
                 <div class="modal-body">
-                    <table>
-                        <tbody>
-                        @foreach($products as $product)
-                            @if($product->category == 'none')
-                                <label for="product_{{ $product->id }}" class="cursor-pointer hover:bg-gray-100">
-                                    <input type="checkbox" id="product_{{ $product->id }}" name="products[]" value="{{ $product->id }}">
-                                    <span class="p-2">{{ $product->name }}</span>
-                                </label>
-                            @endif
-                        @endforeach
-                        </tbody>
-                    </table>
+                    <div class="form-group">
+                        <label for="productName">Select Products</label>
+                        <div>
+                            @foreach($products as $product)
+                                @if($product->category == 'none')
+                                    <div class="form-check">
+                                        <input type="hidden"  id="name" name="name" value="{{ $category->name }}">
+                                        <input type="checkbox" class="form-check-input" id="product_{{ $product->id }}" name="products[]" value="{{ $product->id }}">
+                                        <label class="form-check-label" for="product_{{ $product->id }}">{{ $product->name }}</label>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Add Products</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-</form>
+</div>
