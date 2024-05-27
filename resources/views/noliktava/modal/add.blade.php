@@ -1,7 +1,8 @@
-<form action="{{ route('plaukti.add', $orders->id) }}" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
+
     @csrf
     @method('PATCH')
-    <input type="hidden" name="name" value="{{$orders->name}}">
+    <input type="hidden" name="name" value="">
     <div class="modal fade" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
