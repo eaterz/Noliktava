@@ -8,7 +8,6 @@ use App\Http\Controllers\plaukti\PlauktiController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Orders;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users');
     Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users.update');
     Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
+    Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin.activity');
 });
 
 // Noliktava routes
@@ -35,20 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
     Route::get('/noliktava/orders', [OrderController::class, 'index'])->name('noliktava.orders');
 
-
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
-    Route::patch('/noliktava/add', [NoliktavaController::class, 'add'])->name('noliktava.add');
 
     Route::delete('/noliktava/edit/{id}', [ProductController::class, 'delete'])->name('delete');
     Route::get('/noliktava/edit/{id}', [ProductController::class, 'edit'])->name('noliktva.edit');
     Route::get('/noliktava/create', [ProductController::class, 'create'])->name('noliktava.create');
     Route::post('/noliktava/create', [ProductController::class, 'store'])->name('noliktava.create');
-
-    Route::get('/noliktava/ordercreate', [OrderController::class, 'create'])->name('noliktava.ordercreate');
-
-
-    Route::patch('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
-    Route::patch('/noliktava/remove/{id}', [OrderController::class, 'remove'])->name('noliktava.remove');
+    Route::get('/noliktava/activity', [ActivityController::class, 'index'])->name('noliktava.activity');
 });
 
 // Plaukti routes

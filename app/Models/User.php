@@ -11,6 +11,8 @@ use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Event;
 
 
+
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -82,6 +84,7 @@ class User extends Authenticatable
             }
         });
     }
+
 
 
 }

@@ -5,7 +5,7 @@
 
 
 
-<div class="bg-gray-100 h-screen font-[sans-serif]">
+<div class="bg-gray-100 h-full font-[sans-serif]">
   <div class="mx-auto p-4 sm:max-w-full lg:max-w-7xl">
     <h2 class="mb-12 text-4xl font-extrabold text-gray-800">NOLIKTAVA.LV</h2>
 
@@ -50,7 +50,7 @@
 
 
 
-      
+
 
 
 
