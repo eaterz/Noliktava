@@ -75,6 +75,7 @@ class UsersController extends Controller
             $user->delete();
         }
         return redirect('/admin/users');
+
     }
 
 
