@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('brand'); // Add brand column
             $table->decimal('price', 8, 2);
             $table->string('category')->default('none');
+            $table->string('order')->default('none');
             $table->text('image')->nullable();
             $table->timestamps();
         });
