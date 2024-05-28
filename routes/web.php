@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\noliktava\NoliktavaController;
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/plaukti/show/{id}', [PlauktiController::class, 'show'])->name('plaukti.show');
     Route::patch('/plaukti/add/{id}', [PlauktiController::class, 'add'])->name('plaukti.add');
     Route::patch('/plaukti/remove/{id}', [PlauktiController::class, 'remove'])->name('plaukti.remove');
+    Route::get('/plaukti/activity', [ActivityController::class, 'index'])->name('plaukti.activity');
 });
 
 
