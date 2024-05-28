@@ -1,0 +1,3 @@
+<x-activities>
+
+</x-activities>
