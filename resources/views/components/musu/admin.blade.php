@@ -33,16 +33,18 @@
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 @if(Auth::user()->usertype == 'admin')
-                                    <a href="/admin/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Dashboard</a>
-                                    <a href="/admin/users" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">User</a>
-                                    <a href="/admin/activity" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Activity</a>
+                                    <x-musu.nav-link href="/admin/dashboard" :active="request()->is('admin/dashboard')">Dashboard</x-musu.nav-link>
+                                    <x-musu.nav-link href="/admin/users" :active="request()->is('admin/users')">User</x-musu.nav-link>
+                                    <x-musu.nav-link href="/admin/activity" :active="request()->is('admin/activity')">Activity</x-musu.nav-link>
+                                    <x-musu.nav-link href="/admin/products" :active="request()->is('admin/products')">Products</x-musu.nav-link>
+
                                 @elseif(Auth::user()->usertype == 'noliktava')
                                 <a href="/noliktava/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Products</a>
                                 <a href="/noliktava/orders" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Orders</a>
-                                    <a href="/noliktava/activity" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Activity</a>
+                                    <a href="/noliktava/activity" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Activity</a>
                                 @elseif(Auth::user()->usertype == 'plaukti')
-                                <a href="/plaukti/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Dashboard</a>
-                                    <a href="/plaukti/activity" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Activity</a>
+                                <a href="/plaukti/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Dashboard</a>
+                                    <a href="/plaukti/activity" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Activity</a>
                                 @endif
                             </div>
                         </div>

@@ -29,7 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin.activity');
     Route::delete('/admin/activity/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
-
+    //Products routes
+    Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('/admin/products/create', [AdminController::class, 'create'])->name('admin.products');
+    Route::post('/admin/products', [AdminController::class, 'store'])->name('admin.products.create');
+    Route::get('/admin/products/edit/{id}', [AdminController::class, 'edit'])->name('admin.products.edit');
+    Route::patch('/admin/products', [AdminController::class, 'update'])->name('admin.products.update');
+    Route::delete('/admin/products/edit/{id}', [AdminController::class, 'destroy'])->name('admin.products.delete');
 });
 
 // Noliktava routes
