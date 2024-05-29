@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users.update');
     Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin.activity');
+    Route::delete('/admin/activity/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+
 });
 
 // Noliktava routes

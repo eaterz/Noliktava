@@ -11,4 +11,11 @@ class ActivityController extends Controller
         $activities = Activity::all();
         return view('activities',compact('activities'));
     }
+
+    public function destroy($id)
+    {
+        $activity = Activity::find($id);
+        $activity->delete();
+        return redirect('/admin/activity');
+    }
 }
