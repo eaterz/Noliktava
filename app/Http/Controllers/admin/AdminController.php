@@ -65,14 +65,14 @@ class AdminController extends Controller
         return redirect('/admin/products');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $product = Product::find($id);
         if ($product) {
             $product->delete();
         }
 
-        return redirect('/admin/product');
+        return redirect('/admin/products');
     }
 
 }

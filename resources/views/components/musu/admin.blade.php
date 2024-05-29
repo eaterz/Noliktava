@@ -39,12 +39,12 @@
                                     <x-musu.nav-link href="/admin/products" :active="request()->is('admin/products')">Products</x-musu.nav-link>
 
                                 @elseif(Auth::user()->usertype == 'noliktava')
-                                <a href="/noliktava/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Products</a>
-                                <a href="/noliktava/orders" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none">Orders</a>
-                                    <a href="/noliktava/activity" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Activity</a>
+                                    <x-musu.nav-link href="/noliktava/dashboard" :active="request()->is('noliktava/dashboard')">Dashboard</x-musu.nav-link>
+                                    <x-musu.nav-link href="/noliktava/orders" :active="request()->is('noliktava/orders')">Orders</x-musu.nav-link>
+                                    <x-musu.nav-link href="/noliktava/activity" :active="request()->is('noliktava/activity')">Activity</x-musu.nav-link>
                                 @elseif(Auth::user()->usertype == 'plaukti')
-                                <a href="/plaukti/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Dashboard</a>
-                                    <a href="/plaukti/activity" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-decoration-none" aria-current="page">Activity</a>
+                                    <x-musu.nav-link href="/plaukti/dashboard" :active="request()->is('plaukti/dashboard')">Dashboard</x-musu.nav-link>
+                                    <x-musu.nav-link href="/plaukti/activity" :active="request()->is('plaukti/activity')">Activity</x-musu.nav-link>
                                 @endif
                             </div>
                         </div>
