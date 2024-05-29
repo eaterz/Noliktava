@@ -35,6 +35,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
     Route::get('/noliktava/orders', [OrderController::class, 'index'])->name('noliktava.orders');
 
+    Route::get('/noliktava/ordercreate', [OrderController::class, 'create'])->name('noliktava.ordercreate');
+    Route::post('/noliktava/ordercreate', [OrderController::class, 'store'])->name('noliktava.ordercreate');
+    Route::post('/noliktava/orderstatus/{id}', [OrderController::class, 'finishOrder'])->name('noliktava.orderstatus');
+
+    Route::get('/noliktava/show/{id}', [OrderController::class, 'show'])->name('noliktava.show');
+    Route::get('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
+    Route::patch('/noliktava/remove/{id}', [OrderController::class, 'remove'])->name('noliktava.remove');
+
+
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
 
     Route::delete('/noliktava/edit/{id}', [ProductController::class, 'delete'])->name('delete');
