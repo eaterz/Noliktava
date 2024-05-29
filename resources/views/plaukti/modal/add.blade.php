@@ -12,9 +12,6 @@
              <div class="max-w-md rounded-lg bg-white p-6 shadow-lg">
             <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-xl font-bold text-zinc-900">Add Products</h2>
-                <button type="button" class="text-zinc-500 hover:text-zinc-700" onclick="closeModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <form action="{{ route('plaukti.add', $category->id) }}" method="post">
                 @csrf
@@ -41,7 +38,7 @@
         </div>
     </div>
 
-  
+
     <script>
         function closeModal() {
             document.getElementById('addProductModal').style.display = 'none';

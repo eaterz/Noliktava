@@ -29,13 +29,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin.activity');
     Route::delete('/admin/activity/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
-
+    //Products routes
+    Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('/admin/products/create', [AdminController::class, 'create'])->name('admin.products');
+    Route::post('/admin/products', [AdminController::class, 'store'])->name('admin.products.create');
+    Route::get('/admin/products/edit/{id}', [AdminController::class, 'edit'])->name('admin.products.edit');
+    Route::patch('/admin/products', [AdminController::class, 'update'])->name('admin.products.update');
+    Route::delete('/admin/products/edit/{id}', [AdminController::class, 'destroy'])->name('admin.products.delete');
 });
 
 // Noliktava routes
 Route::middleware('auth')->group(function () {
     Route::get('/noliktava/dashboard', [ProductController::class, 'index'])->name('noliktava.dashboard');
     Route::get('/noliktava/orders', [OrderController::class, 'index'])->name('noliktava.orders');
+
+    Route::get('/noliktava/ordercreate', [OrderController::class, 'create'])->name('noliktava.ordercreate');
+    Route::post('/noliktava/ordercreate', [OrderController::class, 'store'])->name('noliktava.ordercreate');
+    Route::post('/noliktava/orderstatus/{id}', [OrderController::class, 'finishOrder'])->name('noliktava.orderstatus');
+
+    Route::get('/noliktava/show/{id}', [OrderController::class, 'show'])->name('noliktava.show');
+    Route::get('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
+    Route::patch('/noliktava/remove/{id}', [OrderController::class, 'remove'])->name('noliktava.remove');
+
 
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
 

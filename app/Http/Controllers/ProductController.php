@@ -26,13 +26,11 @@ class ProductController extends Controller
             'name' => 'required',
             'brand' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|url',
         ]);
 
         $product = new Product();
         $product->name = $request->input('name');
         $product->brand = $request->input('brand');
-        $product->image = $request->input('image');
         $product->price = $request->input('price');
         $product->save();
 
@@ -49,7 +47,6 @@ class ProductController extends Controller
             'name' => 'required',
             'brand' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|url',
         ]);
 
         $product = Product::findOrFail($id);
