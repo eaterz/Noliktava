@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
+use App\Models\activity;
+use App\Models\Orders;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -10,7 +13,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.dashboard');
+        $totalUsers = User::count();
+        $newUsers = User::whereMonth('created_at', now()->month)->count();
+        $totalProducts = Product::count();
+        $newProducts = Product::whereMonth('created_at', now()->month)->count();
+        $totalOrders = Orders::count();
+        $pendingOrders = Orders::where('status', 'pending')->count();
+        $recentActivities = Activity::latest()->take(2)->get();
+        return view('admin.dashboard', compact('totalUsers', 'newUsers', 'totalProducts', 'newProducts', 'totalOrders', 'pendingOrders', 'recentActivities'));
     }
 
     // Product create
