@@ -52,8 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
     // In web.php
 
-    Route::post('/noliktava/remove', [OrderController::class, 'removeProduct'])->name('noliktava.remove');
-
+    Route::patch('/noliktava/remove/{id}', [OrderController::class, 'removeProduct'])->name('noliktava.remove');
+    // Route::patch('/plaukti/remove/{id}', [PlauktiController::class, 'remove'])->name('plaukti.remove');
 
 
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');
