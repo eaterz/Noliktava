@@ -8,9 +8,9 @@
 </head>
 
 <body class="bg-white">
-    
+
     <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50" id="addProductModal" style="display: none;">
-<<<<<<< HEAD
+
         <div class="flex items-center justify-center h-screen">
             <div class="max-w-md rounded-lg bg-white p-6 shadow-lg">
                 <div class="mb-4 flex items-center justify-between">
@@ -26,20 +26,7 @@
                         <h3 class="mb-2 text-lg font-semibold text-zinc-900">Select Products</h3>
                         <div class="space-y-4">
                             @foreach($products as $product)
-=======
-            <div class="flex items-center justify-center h-screen">
-             <div class="max-w-md rounded-lg bg-white p-6 shadow-lg">
-            <div class="mb-4 flex items-center justify-between">
-                <h2 class="text-xl font-bold text-zinc-900">Add Products</h2>
-            </div>
-            <form action="{{ route('plaukti.add', $category->id) }}" method="post">
-                @csrf
-                @method('PATCH')
-                <div>
-                    <h3 class="mb-2 text-lg font-semibold text-zinc-900">Select Products</h3>
-                    <div class="space-y-4">
-                        @foreach($products as $product)
->>>>>>> 73e55685baddb9e38543e4105fca433a95dd4546
+
                             @if($product->category == 'none')
                             <label class="flex items-center">
                                 <input type="hidden" id="name" name="name" value="{{ $category->name }}">
@@ -58,16 +45,15 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-=======
 
-    <script>
-        function closeModal() {
-            document.getElementById('addProductModal').style.display = 'none';
-        }
->>>>>>> 73e55685baddb9e38543e4105fca433a95dd4546
 
         <script>
+            function closeModal() {
+                document.getElementById('addProductModal').style.display = 'none';
+            }
+
+
+
             function closeModal() {
                 document.getElementById('addProductModal').style.display = 'none';
             }
@@ -76,6 +62,7 @@
                 document.getElementById('addProductModal').style.display = 'flex';
             }
         </script>
+
 </body>
 
 </html>
