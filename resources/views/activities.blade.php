@@ -1,5 +1,6 @@
 <x-musu.admin>
-    <div class="flex flex-col items-center justify-center bg-white light:bg-zinc-900">
+    <div class="bg-gray-100 h-screen font-[sans-serif]">
+    <div class="flex flex-col items-center justify-center ">
         <h1 class="text-2xl font-bold mb-4 text-zinc-900 light:text-zinc-100">Activity</h1>
 
 
@@ -21,7 +22,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-500 hover:text-red-700">
-                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png"/>
+                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png" class="hover: "/>
                                     </button>
                                 </form>
                             </th>
@@ -53,4 +54,5 @@
                 </table>
             </div>
         </div>
+    </div>
 </x-musu.admin>
