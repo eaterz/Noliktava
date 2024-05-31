@@ -55,16 +55,36 @@ class OrderController extends Controller
         $products = Product::all();
         return view('noliktava.show', compact('order', 'products'));
     }
-
-
-    public function remove(Request $request, $OrderId)
+    public function add(Request $request, $orderId)
     {
-        $productId = $request->input('id');
+        $order = $request->input('name');
+        $productIds = $request->input('products');
+        if ($productIds) {
+            foreach ($productIds as $productId) {
+                $product = Product::find($productId);
+                if ($product) {
+                    $product->order = $order;
+                    $product->save();
+                }
+            }
+        }
+        return redirect()->route('noliktava.show', $orderId);
+    }
+
+    // In OrderController
+
+    public function removeProduct(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $orderId = $request->input('order_id');
+
         $product = Product::find($productId);
         if ($product) {
-            $product->category = 'none';
+            $product->order = 'none';
             $product->save();
         }
-        return redirect('/noliktava/dashboard/' . $OrderId);
+
+        return redirect()->route('noliktava.dashboard', ['orderId' => $orderId])
+            ->with('status', 'Product removed successfully.');
     }
 }

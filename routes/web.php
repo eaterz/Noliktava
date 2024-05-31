@@ -49,8 +49,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/noliktava/orderstatus/{id}', [OrderController::class, 'finishOrder'])->name('noliktava.orderstatus');
 
     Route::get('/noliktava/show/{id}', [OrderController::class, 'show'])->name('noliktava.show');
-    Route::get('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
-    Route::patch('/noliktava/remove/{id}', [OrderController::class, 'remove'])->name('noliktava.remove');
+    Route::patch('/noliktava/add/{id}', [OrderController::class, 'add'])->name('noliktava.add');
+    // In web.php
+
+    Route::post('/noliktava/remove', [OrderController::class, 'removeProduct'])->name('noliktava.remove');
+
 
 
     Route::patch('/noliktava/update/{id}', [ProductController::class, 'update'])->name('update');

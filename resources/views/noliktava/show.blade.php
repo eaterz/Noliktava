@@ -10,7 +10,8 @@
     <h1 class="text-3xl font-bold special-h1 normal-h1 text-center">{{ $order->name }}</h1>
 
     <div class="create-task mt-6 flex justify-center items-center">
-        <button class="create-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" type="button" id="openModalBtn">Add Products</button>
+
+        <button class="create-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" type="button" data-target="#addProductOrderModal" id="openModalOrder">Add Products</button>
     </div>
 
     <div class="flex justify-center mt-8">
@@ -42,7 +43,7 @@
                             <div class="modal-header">
                                 <h4 class="modal-title">Remove {{ $product->name }}?</h4>
                             </div>
-                            <form action="{{ route('plaukti.remove', $category->id) }}" method="post">
+                            <form action="{{ route('noliktava.remove', $order->id) }}" method="post">
                                 @csrf
                                 @method('PATCH')
                                 <input type="hidden" name="id" value="{{ $product->id }}">
