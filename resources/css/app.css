@@ -1,8 +1,11 @@
 @import "/resources/css/plaukti.css";
 @import "/resources/css/pop_up.css";
+@import "/resources/css/button.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 .create-form {
     display: flex;

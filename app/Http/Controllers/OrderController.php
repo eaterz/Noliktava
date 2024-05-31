@@ -82,6 +82,6 @@ class OrderController extends Controller
             $product->order = 'none';
             $product->save();
         }
-        return redirect('/plaukti/show/' . $orderId);
+        return redirect('/noliktava/show/' . $orderId);
     }
 }

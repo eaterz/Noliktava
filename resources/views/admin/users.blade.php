@@ -4,13 +4,13 @@
         <h1 class="text-4xl font-extrabold text-gray-900 mt-8">Users</h1>
 
         <div class="create-task mt-6">
-            <a href="/admin/users/create" class="create-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">Create</a>
+            <a href="/admin/users/create" class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3">Create</a>
         </div>
     </div>
 
     <div class="flex justify-center mt-8">
         <table class="table-auto w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-            <thead class="bg-indigo-600 text-white">
+            <thead class="bg-gray-700 text-white">
             <tr>
                 <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Name</th>
                 <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Email</th>

@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="bg-none">
     <!--
   This example requires updating your template:
 

@@ -6,12 +6,12 @@
     <h1 class="text-3xl font-bold special-h1 normal-h1 text-center">{{ $category->name }}</h1>
 
     <div class="create-task mt-6 flex justify-center items-center">
-        <button class="create-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" type="button" id="openModalBtn">Add Products</button>
+        <button class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3" type="button" id="openModalBtn">Add Products</button>
     </div>
 
     <div class="flex justify-center mt-8">
         <table class="table-auto w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-            <thead class="bg-indigo-600 text-white">
+            <thead class="bg-gray-700 text-white">
             <tr>
                 <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Name</th>
                 <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Brand</th>
@@ -27,7 +27,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $product->brand }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $product->price }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" id="openModalremove{{ $product->id }}" data-target="#ModalRemove{{ $product->id }}">Remove</button>
+                            <button type="button" class="first text-white uppercase rounded-lg shadow-lg px-8 py-2 hover:bg-right" id="openModalremove{{ $product->id }}" data-target="#ModalRemove{{ $product->id }}">Remove</button>
                         </td>
                     </tr>
 

@@ -3,7 +3,7 @@
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <div class="flex flex-col items-center">
                 <h1 class="text-4xl font-bold text-gray-800 mb-4">
-                    <span class="block text-lg font-normal text-blue-500">Create a New User</span>
+                    <span class="block text-lg font-normal text-black text-center mb-4">Create a New User</span>
                 </h1>
 
                 <form class="create-form w-full" action="/admin/users" method="POST" enctype="multipart/form-data">
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="button-container mt-6">
-                        <button type="submit" class="rounded-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">Create User</button>
+                        <button type="submit" class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3 w-full">Create User</button>
                     </div>
                 </form>
             </div>

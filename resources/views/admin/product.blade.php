@@ -8,18 +8,18 @@
         <h1 class="text-3xl font-bold special-h1 normal-h1">Products</h1>
 
         <div class="create-task mt-4">
-            <a href="/admin/products/create" class="create-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create</a>
+            <a href="/admin/products/create" class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3">Create</a>
         </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-8">
         <table class="table-auto w-2/3">
-            <thead>
+            <thead class="bg-gray-700">
             <tr>
-                <th class="px-4 py-2">Name</th>
-                <th class="px-4 py-2">Brand</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Actions</th> <!-- Pievieno jaunu kolonnu darbībām -->
+                <th class="px-4 py-2 text-white">Name</th>
+                <th class="px-4 py-2 text-white">Brand</th>
+                <th class="px-4 py-2 text-white">Price</th>
+                <th class="px-4 py-2 text-white">Actions</th> <!-- Pievieno jaunu kolonnu darbībām -->
             </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                     <td class="border px-4 py-2">{{ $product->brand }}</td>
                     <td class="border px-4 py-2">{{ $product->price }}</td>
                     <td class="border px-4 py-2">
-                        <a href="/admin/products/edit/{{$product->id}}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Edit</a> <!-- Pievieno pogu "Edit" -->
+                        <a href="/admin/products/edit/{{$product->id}}" class="second text-white uppercase rounded-lg shadow-lg px-1 py-1.5 hover:bg-right">Edit</a> <!-- Pievieno pogu "Edit" -->
                     </td>
                 </tr>
 

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-white">
 
     <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50" id="addProductModal" style="display: none;">
 
@@ -26,7 +17,6 @@
                         <h3 class="mb-2 text-lg font-semibold text-zinc-900">Select Products</h3>
                         <div class="space-y-4">
                             @foreach($products as $product)
-
                             @if($product->category == 'none')
                             <label class="flex items-center">
                                 <input type="hidden" id="name" name="name" value="{{ $category->name }}">
@@ -63,6 +53,3 @@
             }
         </script>
 
-</body>
-
-</html>

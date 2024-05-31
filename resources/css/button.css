@@ -1,0 +1,30 @@
+.btn-grad {
+    background-image: linear-gradient(to right, #1CD8D2 0%, #93EDC7 51%, #1CD8D2 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+.btn-grad:hover {
+    background-position: right center;
+}
+
+.first {
+    background-image: linear-gradient(to right, #d81c1c 0%, #ef7a9d 51%, #fc6060 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+.second {
+    background-image: linear-gradient(to right, #20e530 0%, #90ef91 51%, #1fa801 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+.three {
+    background-image: linear-gradient(to right, #207ae0 0%, #55e7ce 51%, #016aab 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+.four {
+    background-image: linear-gradient(to right, #ffd42e 0%, #f6e37b 51%, #c2a500 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+
