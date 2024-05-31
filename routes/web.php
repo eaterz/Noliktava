@@ -22,13 +22,14 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users');
-    Route::get('/admin/users/create', [UsersController::class, 'create'])->name('admin.users');
-    Route::post('/admin/users', [UsersController::class, 'store'])->name('admin.users');
-    Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users');
+    Route::get('/admin/users/create', [UsersController::class, 'create'])->name('admin.users.create');
+    Route::post('/admin/users', [UsersController::class, 'store'])->name('admin.users.store');
+    Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users.edit');
     Route::patch('/admin/users', [UsersController::class, 'update'])->name('admin.users.update');
     Route::delete('/admin/users/edit/{id}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin.activity');
     Route::delete('/admin/activity/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+    Route::delete('/admin/activity', [ActivityController::class, 'clearAll'])->name('admin.activity.clear');
     //Products routes
     Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
     Route::get('/admin/products/create', [AdminController::class, 'create'])->name('admin.products');

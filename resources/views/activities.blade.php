@@ -1,7 +1,10 @@
 <x-musu.admin>
     <div class="flex flex-col items-center justify-center bg-white light:bg-zinc-900">
         <h1 class="text-2xl font-bold mb-4 text-zinc-900 light:text-zinc-100">Activity</h1>
-        <div class="w-full max-w-4xl bg-white light:bg-zinc-800 shadow-md rounded-lg">
+
+
+        <div class="w-full max-w-4xl bg-white light:bg-zinc-800 shadow-md rounded-lg p-1">
+
 
             <div class="flex justify-center items-center p-2">
                 <table class="min-w-full bg-white dark:bg-zinc-800">
@@ -9,11 +12,19 @@
                     <thead>
                     <tr>
                         <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">User</th>
-                        <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Action</th>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Usertype</th>
                         <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Description</th>
                         <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Timestamp</th>
                         @if(Auth::user()->usertype == 'admin')
-                            <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Actions</th>
+                            <th class=" text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                                <form action="{{ route('admin.activity.clear') }}" method="POST" onsubmit="return confirm('Are you sure you want to clear all activities?');" class="ml-4">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-700">
+                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png"/>
+                                    </button>
+                                </form>
+                            </th>
                         @endif
                     </tr>
                     </thead>
