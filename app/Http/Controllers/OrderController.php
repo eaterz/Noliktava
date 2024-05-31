@@ -73,18 +73,15 @@ class OrderController extends Controller
 
     // In OrderController
 
-    public function removeProduct(Request $request)
-    {
-        $productId = $request->input('product_id');
-        $orderId = $request->input('order_id');
 
+    public function removeProduct(Request $request, $orderId)
+    {
+        $productId = $request->input('id');
         $product = Product::find($productId);
         if ($product) {
             $product->order = 'none';
             $product->save();
         }
-
-        return redirect()->route('noliktava.dashboard', ['orderId' => $orderId])
-            ->with('status', 'Product removed successfully.');
+        return redirect('/plaukti/show/' . $orderId);
     }
 }
