@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('activity_type');
             $table->morphs('subject');
             $table->text('description')->nullable();
-            $table->timestamps();
+            $table->datetimes();
         });
     }
 

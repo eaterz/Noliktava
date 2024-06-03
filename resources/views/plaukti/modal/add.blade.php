@@ -23,6 +23,8 @@
                                 <input type="checkbox" class="form-checkbox h-5 w-5 text-zinc-600" id="product_{{ $product->id }}" name="products[]" value="{{ $product->id }}">
                                 <span class="ml-2 text-zinc-900">{{ $product->name }}</span>
                             </label>
+                                @else
+                                <h3>Not available Products</h3>
                             @endif
                             @endforeach
                         </div>

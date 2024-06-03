@@ -3,7 +3,7 @@
         <div class="w-full max-w-lg bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
             <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
                 Edit User
-                <span class="block text-xl sm:text-2xl font-normal text-blue-500">Edit User Details</span>
+
             </h1>
 
             <form action="/admin/users" method="POST" enctype="multipart/form-data" class="space-y-4">
