@@ -28,3 +28,9 @@
     transition: background-position 0.5s;
 }
 
+.five {
+    background-image: linear-gradient(to right, #000000 0%, #8c8c8c 51%, #1a1a1a 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+

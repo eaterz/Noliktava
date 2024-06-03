@@ -64,3 +64,8 @@
     gap: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 80vw;
+    }
+}

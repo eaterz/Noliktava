@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Product</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-800 flex items-center justify-center min-h-screen">
-<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+<x-musu.admin>
+<div class="mt-2 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
     <h1 class="text-2xl font-bold mb-6 text-center">Create New Product</h1>
     <form class="space-y-4" action="{{ route('admin.products.create') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -40,9 +32,8 @@
             @enderror
         </div>
         <div>
-            <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Submit</button>
+            <button type="submit" class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3 w-full">Submit</button>
         </div>
     </form>
 </div>
-</body>
-</html>
+</x-musu.admin>
