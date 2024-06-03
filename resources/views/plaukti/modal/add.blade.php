@@ -5,16 +5,12 @@
         <div class="flex items-center justify-center h-screen">
             <div class="max-w-md rounded-lg bg-white p-6 shadow-lg">
                 <div class="mb-4 flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-zinc-900">Add Products</h2>
-                    <button type="button" class="text-zinc-500 hover:text-zinc-700" onclick="closeModal()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h1 class="text-2xl font-bold text-zinc-900">Add Products</h1>
                 </div>
                 <form action="{{ route('plaukti.add', $category->id) }}" method="post">
                     @csrf
                     @method('PATCH')
                     <div>
-                        <h3 class="mb-2 text-lg font-semibold text-zinc-900">Select Products</h3>
                         <div class="space-y-4">
                             @foreach($products as $product)
                             @if($product->category == 'none')
@@ -23,8 +19,6 @@
                                 <input type="checkbox" class="form-checkbox h-5 w-5 text-zinc-600" id="product_{{ $product->id }}" name="products[]" value="{{ $product->id }}">
                                 <span class="ml-2 text-zinc-900">{{ $product->name }}</span>
                             </label>
-                                @else
-                                <h3>Not available Products</h3>
                             @endif
                             @endforeach
                         </div>
