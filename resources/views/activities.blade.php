@@ -12,17 +12,6 @@
                             <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Usertype</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Description</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">Timestamp</th>
-                            @if(Auth::user()->usertype == 'admin')
-                                <th class="text-left text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                                    <form action="{{ route('admin.activity.clear') }}" method="POST" onsubmit="return confirm('Are you sure you want to clear all activities?');" class="ml-4">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-500 hover:text-red-700">
-                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png" class="hover:"/>
-                                        </button>
-                                    </form>
-                                </th>
-                            @endif
                         </tr>
                         </thead>
 
@@ -34,15 +23,6 @@
                                     <td class="px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100">{{ $activity->user->usertype }}</td>
                                     <td class="px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100">{{ $activity->description }}</td>
                                     <td class="px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100">{{ $activity->created_at }}</td>
-                                    @if(Auth::user()->usertype == 'admin')
-                                        <td class="px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100">
-                                            <form action="{{ route('activities.destroy', $activity->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this activity?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
-                                            </form>
-                                        </td>
-                                    @endif
                                 </tr>
                             @endif
                         @endforeach

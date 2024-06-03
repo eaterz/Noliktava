@@ -48,12 +48,14 @@
 
                 <div class="button-container flex justify-between items-center mt-6">
                     <button type="submit" class="rounded-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
-                    <form action="/admin/users/edit/{{$user->id}}" method="POST" class="inline">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="delete-button bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
-                    </form>
+
                 </div>
+            </form>
+
+            <form action="/admin/users/edit/{{$user->id}}" method="POST" class=" mt-4">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class=" delete-button bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
             </form>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\activity;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,13 +32,21 @@ class UsersController extends Controller
 
         ]);
 
-        $product = new User();
-        $product->name = $request->input('name');
-        $product->email = $request->input('email');
-        $product->usertype = $request->input('usertype');
-        $product->password = Hash::make($request->input('password'));
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->usertype = $request->input('usertype');
+        $user->password = Hash::make($request->input('password'));
 
-        $product->save();
+        Activity::create([
+            'user_id' => auth()->id(),
+            'activity_type' => 'create',
+            'subject_type' => 'App\Models\User',
+            'subject_id' => auth()->id(),
+            'description' => "Created user: {$user->name}",
+        ]);
+
+        $user->save();
 
         return redirect('/admin/users');
 
@@ -64,8 +73,18 @@ class UsersController extends Controller
         $user->email = $request->input('email');
         $user->usertype = $request->input('usertype');
         $user->password = Hash::make($request->input('password'));
+
+        Activity::create([
+            'user_id' => auth()->id(),
+            'activity_type' => 'update',
+            'subject_type' => 'App\Models\User',
+            'subject_id' => auth()->id(),
+            'description' => "Updated user: {$user->name}",
+        ]);
+
         $user->save();
         return redirect('/admin/users');
+
     }
 
     public function destroy($id)
@@ -73,6 +92,14 @@ class UsersController extends Controller
         $user=User::find($id);
         if($user){
             $user->delete();
+
+            Activity::create([
+                'user_id' => auth()->id(),
+                'activity_type' => 'delete',
+                'subject_type' => 'App\Models\User',
+                'subject_id' => auth()->id(),
+                'description' => "Deleted user: {$user->name}",
+            ]);
         }
         return redirect('/admin/users');
 
