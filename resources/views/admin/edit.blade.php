@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="button-container flex justify-between items-center mt-6">
-                    <button type="submit" class="rounded-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+                    <button type="submit" class="btn-grad text-white uppercase rounded-lg shadow-lg px-10 py-3 w-full">Submit</button>
 
                 </div>
             </form>
@@ -55,7 +55,7 @@
             <form action="/admin/users/edit/{{$user->id}}" method="POST" class=" mt-4">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class=" delete-button bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
+                <button type="submit" class="first text-white uppercase rounded-lg shadow-lg px-4 py-2 hover:bg-right">Delete</button>
             </form>
         </div>
     </div>

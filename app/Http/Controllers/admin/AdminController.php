@@ -39,8 +39,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required',
             'brand' => 'required',
-            'price' => 'required|numeric',
-            'image' => 'required|url',
+            'price' => 'required|numeric'
         ]);
 
         $product = new Product();
@@ -62,14 +61,14 @@ class AdminController extends Controller
             'name' => 'required',
             'brand' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|url',
+
         ]);
 
         $product = Product::find($request->id);
         $product->name = $request->input('name');
         $product->brand = $request->input('brand');
         $product->price = $request->input('price');
-        $product->image = $request->input('image');
+
         $product->save();
 
         return redirect('/admin/products');
